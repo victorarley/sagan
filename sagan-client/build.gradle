@@ -1,0 +1,23 @@
+plugins {
+	id 'com.github.node-gradle.node' version '2.2.3'
+	id 'java'
+}
+
+node {
+	version = '13.12.0'
+	npmVersion = '6.14.4'
+    download = true
+}
+
+def jsBuildDir = project.buildDir.absolutePath + '/dist'
+
+jar {
+	from jsBuildDir
+	eachFile { details ->
+		details.path = details.path.startsWith('META-INF') ?: 'static/'+details.path
+	}
+	includeEmptyDirs = false
+}
+
+npm_run_build.dependsOn(npm_install)
+jar.dependsOn npm_run_build

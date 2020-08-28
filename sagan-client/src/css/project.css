@@ -1,0 +1,473 @@
+@media only screen and (min-width: 64em) {
+    .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-offset-0, .col-md-offset-1, .col-md-offset-10, .col-md-offset-11, .col-md-offset-12, .col-md-offset-2, .col-md-offset-3, .col-md-offset-4, .col-md-offset-5, .col-md-offset-6, .col-md-offset-7, .col-md-offset-8, .col-md-offset-9 {
+        box-sizing: border-box;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+    .col-md-3 {
+        -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    .compass .hide-sm {
+        display: inline-block;
+    }
+    .col-md-9 {
+        -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+        max-width: 70%;
+    }
+}
+
+#main {
+    margin: 40px 0;
+}
+.compass .sidebar ul.sidebar_main {
+    list-style: none;
+    padding: 0px;
+    border-right: 1px solid #ebf2f2;
+    margin: 2rem 1rem 2rem 0px;
+}
+.compass .sidebar ul.sidebar_main li {
+    position: relative;
+}
+.compass .sidebar .icon-circle,
+.compass .sidebar li.sidebar_head {
+    display: none;
+}
+
+.compass .nav-tabs li, .compass .child-active .sidebar_child,
+.compass .sidebar li {
+    list-style: none;
+}
+.compass .sidebar li li {
+    font-weight: normal;
+}
+.compass .sidebar li li a:hover {
+    font-weight: normal;
+}
+.compass .sidebar li {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    -webkit-font-smoothing: antialiased;
+}
+.compass .child-active .sidebar_child {
+    font-weight: normal;
+    -webkit-font-smoothing: auto;
+    margin-bottom: 0;
+}
+.compass .child-inactive div,
+.compass .child-active div {
+    position: relative;
+}
+.compass .sidebar li:first-child {
+    border-top: 0px;
+}
+.compass .sidebar ul.sidebar_children li.active a,
+.compass .sidebar_project.active > div > a {
+    background: #191E1E;
+    border-radius: 5px;
+    margin-left: -12px;
+    padding-left: 12px;
+    color: white;
+    font-weight: normal;
+}
+
+.compass .sidebar_project.active > div > i {
+    color: white;
+}
+
+.compass .sidebar ul.sidebar_children li.active a:hover {
+    font-weight: normal;
+    background: #191E1E;
+}
+.compass .sidebar ul.sidebar_children li {
+    margin: 0;
+}
+.compass .sidebar a {
+    display: block;
+    padding: 4px 0 7px;
+    margin-right: 17px;
+}
+.compass .sidebar a:hover {
+    font-weight: 700;
+    text-decoration: none;
+    background: #ebf2f2;
+    color: #0066cc;
+    margin-left: -12px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+.compass .sidebar .child-active .sidebar_child a:hover {
+    font-weight: normal;
+    background: transparent;
+}
+.row {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -.5rem;
+    margin-left: -.5rem;
+    justify-content: space-between;
+}
+.compass .project--header {
+    position: relative;
+    padding-bottom: 0.6rem;
+    padding-right: 80px;
+}
+.compass .project--header h1 {
+    display: inline-block;
+    font-size: 2.4rem;
+    vertical-align: middle;
+    line-height: 2.7rem;
+    margin-right: 1rem;
+    margin-bottom: 0.8rem;
+}
+.compass .project--header .label {
+    display: inline-block;
+    margin-bottom: 1.3rem;
+    vertical-align: bottom;
+    background: #80ea6e;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-weight: 700;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+}
+.compass .project--header .social-links {
+    position: absolute;
+    right: 0px;
+    top: 3rem;
+    font-size: 36px;
+    line-height: 30px;
+}
+.compass .nav,
+.compass .nav-tabs a:focus {
+    background: #ebf2f2;
+}
+.compass .nav {
+    margin-bottom: 0px;
+    display: flex;
+    border-bottom: 0px;
+    padding: 13px 7px 7px;
+    border-radius: 7px 7px 0 0;
+}
+.compass .nav-tabs li {
+    margin-bottom: 0px;
+    float: none;
+    padding: 0.7rem 0.3rem;
+    font-size: 15px;
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.compass .nav-tabs a {
+    border-top-style: initial;
+    border-right-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    color: #191E1E;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: 700;
+    border-width: 0px 0px 4px;
+    border-image: initial;
+    padding: 14px 20px 19px;
+    margin: 0px;
+}
+.compass .nav-tabs a:hover, .compass .nav-tabs > .active > a {
+    border-top-style: initial;
+    border-right-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-width: 0px 0px 4px;
+    border-image: initial;
+    border-top: 4px solid rgb(107, 181, 54);
+    background: white;
+}
+.tab-content {
+    margin: 40px 0 80px;
+}
+.tab-content ul {
+    padding: 0 0 0 40px;
+    list-style: disc;
+}
+.tab-content h2 {
+    margin: 30px 0 10px;
+}
+.pill-content > .pill-pane, .tab-content > .tab-pane {
+    display: none;
+}
+.pill-content > .active, .tab-content > .active {
+    display: block;
+}
+@media(max-width: 1023px) {
+    .sidebar {
+        display: none;
+    }
+}
+.compass .project--header .social-links a svg {
+    height: 30px;
+    width: 30px;
+    transition: fill 0.2s ease 0s;
+}
+.compass .project--header .social-links a:hover svg {
+    fill: rgb(107, 181, 54);
+}
+.compass .project--header .social-links a:hover {
+    text-decoration: none;
+}
+[class*=" icon-"], [class^="icon-"] {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.compass .sidebar i.icon-chevron-down {
+    right: 1.2rem;
+}
+.compass .sidebar i {
+    position: absolute;
+    right: 1.3rem;
+    top: 0.2rem;
+    cursor: pointer;
+    padding: 0.3rem;
+}
+.icon-chevron-down:before {
+    content: "\f078";
+}
+.icon-chevron-right:before {
+    content: "\f054";
+}
+
+.compass .table--documentation {
+    width: 100%;
+    margin-top: 18px;
+    border-spacing: 0;
+}
+
+.compass .table--documentation td {
+    border-top: 1px solid #ebf2f2;
+    padding: 12px 4px;
+}
+
+.compass .table--documentation tr:first-child td {
+    border-top: 0 none;
+}
+
+.compass .table--documentation a {
+    color: #086dc3;
+}
+
+.compass .table--documentation a:hover {
+    color: #333;
+}
+
+.compass .table--documentation .label {
+    display: inline-block;
+    background: #80ea6e;
+    border-radius: 6px;
+    padding: 1px 8px;
+    margin-left: 2px;
+    font-weight: 700;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+}
+
+.compass .table--documentation .label.ga {
+    background: #c51515;
+    color: white;
+}
+
+.compass .table--documentation .label.snapshot {
+    background: #007ed6;
+    color: white;
+}
+
+.compass .table--documentation .label.pre {
+    background: #34302d;
+    color: white;
+}
+
+.compass .project--guides--title {
+    border-top: 4px solid #ebf2f2;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.compass .project--list-links {
+    padding: 12px 0;
+    margin: 0;
+}
+
+.compass .project--list-links li {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+    border-top: 1px solid #ebf2f2;
+}
+
+.compass .project--list-links li:first-child {
+    border-top: 0 none;
+}
+
+.compass .project--list-links li a {
+    display: block;
+    position: relative;
+    padding: 5px 0 5px 60px;
+}
+
+.compass .project--list-links li strong, .compass .project--list-links li span {
+    display: block;
+}
+
+.compass .project-content .project--list-links li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.compass .project-content .project--list-links li a strong {
+    color: #086dc3;
+    padding-bottom: 2px;
+}
+
+.compass .project-content .project--list-links li a:hover strong {
+    color: #191E1E;
+}
+
+.compass .project--list-links li span.icon {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+}
+
+.compass .project--list-links li span.icon svg {
+    width: 25px;
+}
+
+.admonitionblock {
+    border-left: none;
+    background-color: #ebf2f2;
+    padding: 25px 20px;
+    margin: 30px 0;
+    width: auto;
+    overflow: auto;
+}
+
+.admonitionblock table tr td:first-child {
+    display: none;
+}
+.compass .project-content .nav-tabs>.active>a, .compass .project-content .nav-tabs a,
+.compass .project-content .nav-tabs a:hover {
+    color: black;
+    text-decoration: none;
+}
+.compass .project-content a {
+    color: #086dc3;
+}
+
+.compass .project-content a:hover {
+    color: #191E1E;
+}
+
+.project-content pre {
+    padding: 10px;
+    border: 1px solid #e1e1e8;
+}
+
+.project-content pre code {
+    border: 0 none;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-break: break-word;
+}
+
+.project-content code {
+    font-size: 14px;
+    font-family: Monaco,monospace;
+    border: 1px solid #e1e1e8;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 2px 6px;
+    color: #009;
+}
+
+.project-content {
+    color: #333;
+}
+
+.compass .project-content .anchor {
+    display: none;
+}
+
+.compass .quickstart {
+    background: #ebf2f2;
+    margin-top: 3rem;
+    padding: 2rem 2rem 2rem 95px;
+    position: relative;
+}
+
+.compass .quickstart img {
+    width: 50px;
+    position: absolute;
+    left: 30px;
+    top: 36px;
+}
+
+.compass .quickstart h2 {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .compass .nav-tabs a {
+        padding: 14px 8px 19px;
+    }
+    .compass .project--header {
+        padding-right: 0;
+    }
+    .compass .project--header h1 {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+    .compass .project--header .social-links {
+        position: relative;
+        top: 0;
+        margin-bottom: 12px;
+        margin-top: 1rem;
+    }
+    .compass .project--header .label {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+@media(max-width:1023px) {
+    .compass .col-project-content {
+        width: 100%;
+    }
+}

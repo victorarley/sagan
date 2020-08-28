@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<!--
+    Configuration file for UrlRewriteFilter. See:
+    http://www.tuckey.org/urlrewrite/
+    http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/guide.html
+    http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html
+    http://localhost:8080/rewrite-status (only works when running locally)
+-->
+<urlrewrite use-query-string="true">
+    <rule>
+        <name>Support renamed mongodb GS guide</name>
+        <note>https://github.com/spring-io/sagan/issues/249</note>
+        <from>^/guides/gs/accessing-data-mongo/?$</from>
+        <to type="permanent-redirect" last="true">/guides/gs/accessing-data-mongodb/</to>
+    </rule>
+    <rule>
+        <name>Support renamed Spring XD guide</name>
+        <note>https://github.com/spring-io/sagan/issues/226</note>
+        <from>^/guides/gs/spring-xd-osx/?$</from>
+        <to type="permanent-redirect" last="true">/guides/gs/spring-xd/</to>
+    </rule>
+    <rule>
+        <name>GSG trailing slash</name>
+        <note>https://www.pivotaltracker.com/story/show/52214321</note>
+        <from>/guides/gs/([^/]+)$</from>
+        <to type="permanent-redirect" last="true">/guides/gs/$1/</to>
+    </rule>
+    <rule>
+        <name>Tutorial root trailing slash</name>
+        <note>https://www.pivotaltracker.com/story/show/52214321</note>
+        <from>/guides/tutorials/([^/]+)$</from>
+        <to type="permanent-redirect" last="true">/guides/tutorials/$1/</to>
+    </rule>
+    <rule>
+        <name>Tutorial page trailing slash</name>
+        <note>https://www.pivotaltracker.com/story/show/52214321</note>
+        <from>/guides/tutorials/(.+)/(\d{1,2})$</from>
+        <to type="permanent-redirect" last="true">/guides/tutorials/$1/$2/</to>
+    </rule>
+    <rule>
+        <name>Rossen's WebSocket blog post</name>
+        <from>^.*/2013/07/24/spring-framework-4-0-m2-websocket-messaging-architectures/?</from>
+        <to type="temporary-redirect" last="true">http://assets.spring.io/wp/WebSocketBlogPost.html</to>
+    </rule>
+    <rule>
+        <name>YouTube</name>
+        <note>https://www.pivotaltracker.com/story/show/54309374
+        Provide a consistent URL abstraction for our videos while we work out the new
+        name of our youtube channel.
+        </note>
+        <from>^/videos?</from>
+        <to type="temporary-redirect" last="true">http://www.youtube.com/springsourcedev</to>
+    </rule>
+    <rule>
+        <name>GSG listing</name>
+        <note>https://www.pivotaltracker.com/story/show/54212676
+        Issue 302 redirect from /guides/gs to /guides#gs</note>
+        <from>/guides/gs[/]?$</from>
+        <to type="temporary-redirect" last="true">/guides#gs</to>
+    </rule>
+    <rule>
+        <name>Tutorial listing</name>
+        <note>https://www.pivotaltracker.com/story/show/54212676
+        Issue 302 redirect from /guides/tutorials to /guides#tutorials</note>
+        <from>/guides/tutorials[/]?$</from>
+        <to type="temporary-redirect" last="true">/guides#tutorials</to>
+    </rule>
+    <rule>
+        <name>Deprecated Tutorials</name>
+        <note>https://github.com/spring-io/sagan/pull/475</note>
+        <from>/guides/tutorials/(data|web)/$</from>
+        <to type="temporary-redirect" last="true">/guides</to>
+    </rule>
+    <rule>
+        <name>Deprecated Spring Boot WAR Guide</name>
+        <note>https://github.com/spring-io/sagan/issues/480</note>
+        <from>/guides/gs/convert-jar-to-war-maven/$</from>
+        <to type="temporary-redirect" last="true">/guides/gs/convert-jar-to-war/</to>
+    </rule>
+    <rule>
+        <name>Remove www</name>
+        <note>Redirect www.spring.io => spring.io[#54747656]</note>
+        <condition name="host">www.spring.io</condition>
+        <from>^(.*)$</from>
+        <to type="permanent-redirect" last="true">https://spring.io$1</to>
+    </rule>
+    <rule>
+        <name>Project page catch-all</name>
+        <from>^(/spring-.+)$</from>
+        <to type="temporary-redirect" last="true">https://projects.spring.io$1</to>
+    </rule>
+    <rule>
+        <name>Google Plus</name>
+        <note>https://github.com/spring-io/sagan/issues/125</note>
+        <from>^/gplus$</from>
+        <to type="temporary-redirect" last="true">https://plus.google.com/+springframework/</to>
+    </rule>
+    <rule>
+        <name>Linkedin</name>
+        <note>https://github.com/spring-io/sagan/issues/222</note>
+        <from>^/linkedin$</from>
+        <to type="temporary-redirect" last="true">http://www.linkedin.com/groups/46964</to>
+    </rule>
+	<rule>
+		<name>Tools3</name>
+		<from>^/tools3.*</from>
+		<to type="temporary-redirect" last="true">/tools#suite-three</to>
+	</rule>
+</urlrewrite>

@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+</head>
+<body id='projects'>
+<div layout:fragment="~{content}">
+  <div id='hero'>
+    <div class='container'>
+      <h1 class='h1 mb-1 antialiased'>Projects</h1>
+      <p class='big mb-5'>From configuration to security, web apps to big data&mdash;whatever the infrastructure needs of your application may be, there is a Spring Project to help you build it. Start small and use just what you need&mdash;Spring is modular by design.</p>
+    </div>
+  </div>
+  <div class='content' role='Main'>
+    <div class='container'>
+
+      <h2 class='h5 small uppercase thin wide' th:if="${not #lists.isEmpty(featured)}">Featured Projects</h2>
+      <section id='featured' class='flex jc-between mb-4' th:each="project : ${featured}">
+        <a class='featured-proj third rad-5 shadow-hover border-dark bg-white border-box'>
+          <h3 class='h3 m-0 antialiased' th:text="${project.name}">Spring Kubernetes</h3>
+          <p class='m-0' th:text="${project.tagLine}">Very short one-line description.</p>
+        </a>
+      </section>
+      <section id='filters-and-proj' class='flex jc-between mb-6'>
+        <ul id='proj-filters'>
+          <li class='blue pointer rad-5 border-box flex jc-between ai-center' th:each="group : ${groups}" th:attr="data-group=${group.name}" th:inline="text">[[${group.label}]]<img class='filter-exit'th:src="@{/images/close.svg}" alt=''></li>
+        </ul>
+        <div class='proj-80'>
+          <div class='flex jc-between flex-wrap'>
+            <a th:each="project : ${active}" class='project half border-dark shadow-hover rad-5 flex jc-between bg-white border-box'
+               th:href="${project.siteUrl}" th:attr="data-groups=${project.groups.![name]}">
+              <div class='proj-icon-box'>
+                <img class='proj-icon' th:src="@{${project.imagePath ?: '/images/projects/spring.svg'}}">
+              </div>
+              <div class='proj-text'>
+                <h3 class='h3 m-0 antialiased' th:text="${project.name}">Spring Boot</h3>
+                <p th:text="${project.tagLine}">Takes an opinionated view of building Spring applications and gets you up and running as quickly as possible.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id='community-proj' class='proj-category mb-6' th:if="${community}">
+        <h2 class='h3 mb-3 antialiased'>Community Projects</h2>
+        <div class='flex'>
+          <div class='proj-80 flex jc-between flex-wrap'>
+            <a th:each="project : ${community}" class='project half border-dark shadow-hover rad-5 flex jc-between bg-white border-box'
+               th:href="${project.siteUrl}" th:attr="data-groups=${project.groups.![name]}">
+              <div class='proj-icon-box'>
+                <img class='proj-icon' th:src="@{${project.imagePath ?: '/images/projects/spring.svg'}}">
+              </div>
+              <div class='proj-text'>
+                <h3 class='h3 m-0 antialiased' th:text="${project.name}">Spring Boot</h3>
+                <p th:text="${project.tagLine}">Takes an opinionated view of building Spring applications and gets you up and running as quickly as possible.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id='attic-proj' class='proj-category proj-category-attic mb-6'>
+        <h2 class='h3 mb-3 antialiased'>Projects in the Attic</h2>
+        <div class='flex'>
+          <div class='flex flex-wrap'>
+            <a th:each="project : ${attic}"
+               class='project'
+               th:href="${project.siteUrl}" th:attr="data-groups=${project.groups.![name]}">
+              <div class='proj-text'>
+                <h3 class='h3 blue m-0 antialiased' th:text="${project.name}">Spring Boot</h3>
+                <p th:text="${project.tagLine}">Takes an opinionated view of building Spring applications and gets you
+                  up and running as quickly as possible.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script th:src="@{/js/project.js}"></script>
+  </div>
+</div>
+</body>
+</html>

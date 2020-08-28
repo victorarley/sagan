@@ -1,0 +1,132 @@
+project:
+  artifactId: spring-io
+  name: spring-io
+  description: spring-io
+
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+  spring:
+    profiles: ${spring.profiles.active:default}
+  app:
+    name: ${vcap.application.name:sagan}:${vcap.application.instance_index:*}
+    start: ${vcap.application.start:N/A}
+
+spring:
+  main:
+    sources: sagan.SiteApplication
+  thymeleaf:
+    mode: LEGACYHTML5
+  jpa:
+    hibernate:
+      ddl_auto: none
+
+security:
+  basic:
+    enabled: false
+  require_ssl: false
+  ignored: 
+    - /lib/**
+    - /css/**
+    - /font-custom/**
+    - /img/**
+    - /500
+    - /404
+  headers:
+    hsts: domain
+  user:
+    password: ${ADMIN_PASSWORD:}
+
+github:
+
+  # Credentials are based on users belonging to a particular GitHub team,
+  # by requesting the GitHub API (see github.client configuration keys).
+  # This key can be found in the list of teams in your organization
+  # See http://developer.github.com/v3/orgs/teams/#list-teams
+  team:
+    id: ${GITHUB_TEAM_ID:482984}
+
+  # GitHub OAuth application credentials for use when logging into administrative
+  # console at /admin. Default 'id' and 'secret' values apply only when running
+  # locally, i.e. at http://localhost:8080. Production values must be overridden
+  # using GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET, respectively.
+  client:
+    id: ${GITHUB_CLIENT_ID:fb06c006c2ed62fe9e8b}
+    secret: ${GITHUB_CLIENT_SECRET:164264e3f6d70c7c21713b7fa64225cb8d6107b2}
+
+  # This optional property may be assigned using a "personal access token" created
+  # at https://github.com/settings/applications. It is used for accessing GitHub's
+  # API, even for operations that do not require authorization (e.g. Getting Started
+  # Guide repositories). This is done in order to work against higher rate limits
+  # (5000req/hour vs. the default 60req/hour without a token). When running the app
+  # locally, this lower default is fine. When running the app in production, the
+  # token is a must. See http://developer.github.com/v3/#rate-limiting.
+  access:
+    token: ${GITHUB_ACCESS_TOKEN:}
+
+logging:
+  level:
+    ROOT: WARN
+    org.apache.http: WARN
+    # turn up to DEBUG to diagnose GitHub API issues
+    org.apache.http.headers: WARN
+    # turn up to DEBUG to see information about guides as they are fetched and processed
+    sagan.guides.support: WARN
+    # always log high-level information about application startup
+    sagan.SiteApplication: INFO
+    # log generated password for admin endpoints, e.g. /env, /beans
+    # See http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints
+    org.springframework.boot.autoconfigure.security.AuthenticationManagerConfiguration: INFO
+---
+
+spring:
+  profiles: staging,production
+  resources:
+    add-mappings: false
+security:
+  require_ssl: true
+server:
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json
+  use-forward-headers: true
+
+---
+
+spring:
+  profiles: standalone
+  resources:
+    static_locations:
+      - file:${client.dir}/build/dist/
+  devtools:
+    restart:
+      additional_paths:
+        - ../sagan-client/build/dist/
+      additional_exclude: "**/*.js,**/*.css"
+disqus_shortname: ${DISQUS_SHORTNAME:spring-io-localhost}
+flyway:
+  locations: classpath:/db/migration, classpath:/db/dev
+---
+
+spring:
+  profiles: staging
+disqus_shortname: ${DISQUS_SHORTNAME:spring-io-staging}
+sagan:
+  site:
+    renderer:
+      service-url: https://sagan-renderer-staging.cfapps.io
+---
+
+spring:
+  profiles: production
+  datasource:
+    tomcat:
+      max-active: 8
+      test-on-borrow: true
+disqus_shortname: ${DISQUS_SHORTNAME:spring-io}
+sagan:
+  site:
+    renderer:
+      service-url: https://sagan-renderer.cfapps.io

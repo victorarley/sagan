@@ -1,0 +1,21 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: gradle
+    tag: jdk8
+inputs:
+- name: sagan-site-repo
+outputs:
+- name: build
+caches:
+- path: gradle
+params:
+run:
+  user: root
+  path: /bin/bash
+  args:
+    - -ec
+    - |
+      ${PWD}/sagan-site-repo/concourse/scripts/build-sagan-site.sh

@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="admin/layout">
+<head>
+    <title>Admin | Projects</title>
+</head>
+<body>
+<nav layout:fragment="~{breadcrumb}">
+    <ul>
+        <li><a th:href="@{/admin}">Admin</a></li>
+        <li class="is-active"><a th:href="@{admin/projects}" aria-current="page">Projects</a></li>
+    </ul>
+</nav>
+<div layout:fragment="~{content}">
+    <nav class="level">
+        <div class="level-left">
+            <h2 class="title is-2">Projects</h2>
+        </div>
+        <div class="level-right">
+            <p class="level-item"><a class="button is-success" th:href="@{'/admin/projects/new'}">Create Project</a></p>
+        </div>
+    </nav>
+    <hr class="hr">
+    <div>
+        <table class="table is-striped is-fullwidth">
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Category</td>
+                <td>Public Page</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="project : ${projects}">
+                <td><a th:href="@{'/admin/projects/' + ${project.id}}" th:text="${project.name}">spring-framework</a></td>
+                <td>
+                    <span class="tag" th:classappend="${'is-' + project.category}" th:text="${project.category}">News</span>
+                </td>
+                <td>
+                    <a th:href="${project.siteUrl}" target="_blank">
+                        <span class="icon">
+                            <i class="fas fa-link"></i>
+                        </span>
+                        <span th:text="${project.siteUrl}">/projects/spring-framework</span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
